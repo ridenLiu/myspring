@@ -2,40 +2,74 @@ package com.riden.spring.entity;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class Student {
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", age=" + age +
-                '}';
-    }
+    private String studentno;
 
-    private Integer id;
+    private Integer loginpwd;
 
-    private String name;
+    private String studentname;
+
+    private String sex;
+
+    private Integer gradeid;
+
+    private String phone;
 
     private String address;
 
-    private Integer age;
+    private Date borndate;
 
-    public Integer getId() {
-        return id;
+    private String email;
+
+    public String getStudentno() {
+        return studentno;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStudentno(String studentno) {
+        this.studentno = studentno;
     }
 
-    public String getName() {
-        return name;
+    public Integer getLoginpwd() {
+        return loginpwd;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLoginpwd(Integer loginpwd) {
+        this.loginpwd = loginpwd;
+    }
+
+    public String getStudentname() {
+        return studentname;
+    }
+
+    public void setStudentname(String studentname) {
+        this.studentname = studentname;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Integer getGradeid() {
+        return gradeid;
+    }
+
+    public void setGradeid(Integer gradeid) {
+        this.gradeid = gradeid;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -46,11 +80,38 @@ public class Student {
         this.address = address;
     }
 
-    public Integer getAge() {
-        return age;
+    public Date getBorndate() {
+        return borndate;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setBorndate(Date borndate) {
+        this.borndate = borndate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", studentno=").append(studentno);
+        sb.append(", loginpwd=").append(loginpwd);
+        sb.append(", studentname=").append(studentname);
+        sb.append(", sex=").append(sex);
+        sb.append(", gradeid=").append(gradeid);
+        sb.append(", phone=").append(phone);
+        sb.append(", address=").append(address);
+        sb.append(", borndate=").append(borndate);
+        sb.append(", email=").append(email);
+        sb.append("]");
+        return sb.toString();
     }
 }
