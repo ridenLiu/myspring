@@ -38,7 +38,7 @@
         </javaTypeResolver>
 
         <!--用于控制实体（Model）类的代码生成行为-->
-        <javaModelGenerator targetPackage="entity" targetProject="jdbc/src/main/java">
+        <javaModelGenerator targetPackage="springdemo.jdbc.entity" targetProject="jdbc/springdemo/jdbc/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaModelGenerator>
         <!--用于控制XML映射文件的代码生成行为-->

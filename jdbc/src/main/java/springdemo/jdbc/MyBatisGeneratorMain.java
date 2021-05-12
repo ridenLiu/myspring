@@ -1,3 +1,5 @@
+package springdemo.jdbc;
+
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -23,17 +25,16 @@ public class MyBatisGeneratorMain {
     /**
      * 执行MyBatis Generator
      *
-     * @throws Exception
+     * @throws Exception _
      */
     void runGenerator() throws Exception {
         System.out.println("==============start running==============");
         List<String> warnings = new ArrayList<>();
-        // 如果已经存在生成过的文件是否进行覆盖
-        boolean isOverWrite = true;
         InputStream configFile = getClass().getResourceAsStream("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(configFile);
-        DefaultShellCallback callback = new DefaultShellCallback(isOverWrite);
+        // 如果已经存在生成过的文件是否进行覆盖
+        DefaultShellCallback callback = new DefaultShellCallback(true);
         MyBatisGenerator generator = new MyBatisGenerator(config, callback, warnings);
         generator.generate(null);
         System.out.println("==============end of run==============");
@@ -42,10 +43,10 @@ public class MyBatisGeneratorMain {
     /**
      * Test the connection to the database
      *
-     * @throws Exception
+     * @throws Exception _
      */
     void testConn() throws Exception {
-        // get config info
+        // get springdemo.jdbc.config info
         InputStream in = getClass().getResourceAsStream("db.properties");
         Properties config = new Properties();
         config.load(in);
@@ -60,7 +61,7 @@ public class MyBatisGeneratorMain {
         try (
                 Connection conn = DriverManager.getConnection(url, username, pwd);
                 PreparedStatement ps = conn.prepareStatement(testSql);
-                ResultSet rs = ps.executeQuery();
+                ResultSet rs = ps.executeQuery()
         ) {
             System.out.println("conn: " + conn);
             System.out.println("is conn valid: " + conn.isValid(5000));
